@@ -6,25 +6,28 @@ import { FieldType, FormlyFieldConfig } from '@ngx-formly/core';
   template: `
   <mat-tab-group>
     <mat-tab *ngFor="let tab of field.fieldGroup; let i = index; let last = last;"
-      [label]="tab.templateOptions.label"
-      [disabled]="i !== 0 && !isValid(field.fieldGroup[i - 1])">
+      [label]="tab?.templateOptions?.label!"
+      >
       <formly-field [field]="tab"></formly-field>
-
-      <button *ngIf="last" class="btn btn-primary" [disabled]="!form.valid" type="submit">
+      <div class="justify-content-end text-end m-2">
+        <button *ngIf="last" class="btn btn-primary" [disabled]="!form?.valid" type="submit">    
         Submit
-      </button>
-    </mat-tab>
-  </mat-tab-group>
-`,
-})
+        </button>
+      </div>
+      </mat-tab>
+      </mat-tab-group>
+      `,
+    })
+    // [disabled]="i !== 0 && !isValid(field?.fieldGroup[0])">
 export class FormlyFieldTabs extends FieldType {
-  isValid(field: FormlyFieldConfig) {
-    if (field.key) {
-      return field.formControl.valid;
+  isValid(field?: FormlyFieldConfig,num?:number) {
+    console.log("field : ",field, "  num  : ",num);
+    if (field?.key) {
+      return field?.formControl!.valid!;
     }
 
-    return field.fieldGroup
-      ? field.fieldGroup.every((f) => this.isValid(f))
+    return field?.fieldGroup
+      ? field?.fieldGroup.every((f) => this.isValid(f))
       : true;
   }
 }

@@ -15,6 +15,9 @@ import { FormlyFieldCustomInput } from './inline-text.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { FormlyFieldTabs } from './tabs.component';
+
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     RepeatTypeComponent,
     FooterComponent,
     LoginComponent,
+    FormlyFieldTabs,
   ],
   imports: [
     CommonModule,
@@ -49,10 +53,12 @@ import {MatTabsModule} from '@angular/material/tabs';
           wrappers: ['form-field'],
         },
         { name: 'repeat', component: RepeatTypeComponent, },
+        { name: 'tabs', component: FormlyFieldTabs, },        
       ],
     }),
     FormlyBootstrapModule,
-    
+    CommonModule,
   ],
 })
 export class IndexModule {}
+

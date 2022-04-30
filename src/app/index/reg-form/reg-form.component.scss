@@ -15,7 +15,7 @@
 
 .col-6{
     margin-top: 5px;
-    margin-bottom: 5px;
+    // margin-bottom: 5px;
 }
 
 .form-container{
@@ -24,4 +24,10 @@
     border-width: 3px;
     border-color: black;
     padding: 5px;
+    background-color: white;
+    padding:10px;
+}
+
+.default-height{
+    min-height: 720px;
 }

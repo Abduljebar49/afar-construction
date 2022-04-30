@@ -1,42 +1,97 @@
 <div>
-    <header id="header" style="height: 600px; text-align: center; background-image: url('assets/amazing.jpg');">
+  <header
+    id="header"
+    style="
+      height: 600px;
+      text-align: center;
+      background-image: url('assets/con4.jpg');
+    "
+  >
     <div class="intro text-center">
       <div class="overlay">
         <div class="container">
-          <div class="row" >
-              <h1 style="margin-top: 260px;">Welcome to <span class="brand bg-dark">Afar Construction Permit and Control</span></h1>
-              <p>Afar Regional Government</p>
+          <div class="row">
+            <h1 style="margin-top: 260px">
+              <span class="brand bg-dark"
+                >Welcome to Afar Construction Permit and Control System</span
+              >
+            </h1>
+            <p>Afar Regional Government</p>
           </div>
         </div>
       </div>
-      </div>
+    </div>
   </header>
-  
-  
-  
+
   <!-- Services Section url(images/bg-for-text.png);" -->
-  <div id="services" class="text-center mt-0" style="background-color: black;">
-    <div class="container bg-inverse" style="color: white; width: 100%; width: 100%; height: 450px;">
-  
+  <div id="services" class="text-center mt-0" style="background-color: black">
+    <div
+      class="container bg-inverse"
+      style="color: white; width: 100%; width: 100%; height: 450px"
+    >
       <div class="col-md-12 col-md-offset-2 section-title text-center">
-       <h2 style="color: black;">ddd</h2>
-        <h2 class="display-4 text-center " style="margin-top: 70px;">Our services</h2>
+        <p class="service-text text-center">
+          Our services
+        </p>
         <!-- <p class="text-center" style="margin-top: 40px;">The Awaitu mendera kebele like every other kebele has many services and function. In order to serve those that are live in kebele or those that transferred from other to that kebele, kebele give a number of services that are listed down.</p> -->
       </div>
-      <div class="row" style="margin-top: 70px;">
-        <div class="col-xs-6 col-md-4"><i class="fa fa-line-chart"></i>
-          <h4><a [routerLink]="['/form']" [queryParams]="{type: 'consultant'}" >{{text1}}</a></h4>
+      <div class="row" style="margin-top: 70px">
+        <div class="col-xs-6 col-md-4">
+          <div class="text-center mb-4">
+            <img
+              src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg"
+              alt="logo"
+              width="100"
+            />
+          </div>
+
+          <h4>
+            <a
+              [routerLink]="['/form']"
+              [queryParams]="{ type: 'professional' }"
+            >
+              Registration of Professionals</a
+            >
+          </h4>
+          <p>Description about registration of professionals</p>
+          <p></p>
+        </div>
+
+        <div class="col-xs-6 col-md-4">
+          <div class="text-center mb-4">
+            <img
+              src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg"
+              alt="logo"
+              width="100"
+            />
+          </div>
+
+          <h4>
+            <a [routerLink]="['/form']" [queryParams]="{ type: 'contractor' }"
+              >Registration of Contractors</a
+            >
+          </h4>
+          <p>Description about registration of Contractors</p>
+        </div>
+        <div class="col-xs-6 col-md-4">
+          <div class="text-center mb-4">
+            <img
+              src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg"
+              alt="logo"
+              width="100"
+            />
+          </div>
+
+          <h4>
+            <a
+              [routerLink]="['/form']"
+              [queryParams]="{ type: 'consultant' }"
+              >{{ text1 }}</a
+            >
+          </h4>
           <p>Description about Consultants’ performance verification</p>
         </div>
-        <div class="col-xs-6 col-md-4">
-          <h4><a [routerLink]="['/form']" [queryParams]="{type: 'professional'}"> Registration of Professionals</a></h4>
-          <p>Description about registration of professionals</p>
-          <p></div>
-        <div class="col-xs-6 col-md-4">
-          <h4><a [routerLink]="['/form']" [queryParams]="{type: 'contractor'}">Registration of Contractors</a></h4>
-          <p>Description about registration of Contractors</p>
 
-        </div>
         <!-- <div class="col-xs-6 col-md-3">
           <h4><a href="#other">Other services</a></h4>
           <p>there are also services that are given in the kebele ....</p>
@@ -44,5 +99,4 @@
       </div>
     </div>
   </div>
-  
 </div>

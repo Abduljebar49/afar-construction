@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-reg-form',
@@ -42,7 +43,7 @@ export class RegFormComponent implements OnInit {
     //   },
     // ];
     // const groups = this.buildGroups(response);
-    if (this.type == 'consultant') {
+    if (this.type == 'professional') {
       this.fields = [
         {
           fieldGroupClassName: 'mt-3 row',
@@ -252,6 +253,63 @@ export class RegFormComponent implements OnInit {
         },
       ];
     } else {
+      console.log("inside else");
+      this.fields = [
+        {
+          type: 'tabs',
+          fieldGroup: [
+            {
+              templateOptions: { label: 'Personal data' },
+              fieldGroup: [
+                {
+                  key: 'firstname',
+                  type: 'input',
+                  templateOptions: {
+                    label: 'First name',
+                    required: true,
+                  },
+                },
+                {
+                  key: 'age',
+                  type: 'input',
+                  templateOptions: {
+                    type: 'number',
+                    label: 'Age',
+                    required: true,
+                  },
+                },
+              ],
+            },
+            {
+              templateOptions: { label: 'Destination' },
+              fieldGroup: [
+                {
+                  key: 'country',
+                  type: 'input',
+                  templateOptions: {
+                    label: 'Country',
+                    required: true,
+                  },
+                },
+              ],
+            },
+            {
+              templateOptions: { label: 'Day of the trip' },
+              fieldGroup: [
+                {
+                  key: 'day',
+                  type: 'input',
+                  templateOptions: {
+                    type: 'date',
+                    label: 'Day of the trip',
+                    required: true,
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      ];
     }
   }
 
@@ -264,7 +322,8 @@ export class RegFormComponent implements OnInit {
 
   submit() {
     if (this.form.valid) {
-      alert(JSON.stringify(this.model));
+      // alert(JSON.stringify(this.model));
+      Swal.fire('Registered',"Successfully Registered",'success');
     }
   }
 
