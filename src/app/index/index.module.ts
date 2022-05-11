@@ -1,5 +1,4 @@
-import { RepeatTypeComponent } from './repitition-section.component';
-import { PanelWrapperComponent } from './panel-wrapper.component';
+import { PanelWrapperComponent } from '../panel-wrapper.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
@@ -11,11 +10,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { RegFormComponent } from './reg-form/reg-form.component';
-import { FormlyFieldCustomInput } from './inline-text.component';
+import { FormlyFieldCustomInput } from '../inline-text.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import {MatTabsModule} from '@angular/material/tabs';
-import { FormlyFieldTabs } from './tabs.component';
+import { FormlyFieldTabs } from '../tabs.component';
+import { RepeatTypeComponent } from '../repitition-section.component';
 
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 

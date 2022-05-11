@@ -8,7 +8,9 @@
 //     padding: 10px;
 //   }
 
-
+.button-width{
+  width:100px;
+}
 
 .applaidfor{
   display: inline;
@@ -23,6 +25,15 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.sidebar-back {
+  // height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
+    url("assets/images/img1.jpeg");
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
 }
 
 .bottom-border {

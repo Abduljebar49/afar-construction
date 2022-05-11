@@ -16,33 +16,6 @@ export class RegFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // const response = [
-    //   {
-    //     "name": "add-user",
-    //     "group": "User"
-    //   },
-    //   {
-    //     "name": "edit-user",
-    //     "group": "User"
-    //   },
-    //   {
-    //     "name": "delete-user",
-    //     "group": "User"
-    //   },
-    //   {
-    //     "name": "add-post",
-    //     "group": "Post"
-    //   },
-    //   {
-    //     "name": "edit-post",
-    //     "group": "Post"
-    //   },
-    //   {
-    //     "name": "delete-post",
-    //     "group": "Post"
-    //   },
-    // ];
-    // const groups = this.buildGroups(response);
     if (this.type == 'professional') {
       this.fields = [
         {
@@ -316,6 +289,8 @@ export class RegFormComponent implements OnInit {
   form = new FormGroup({});
   model: any = {
     education: [{}],
+    id:1,
+    status:'pending',
   };
   options: FormlyFormOptions = {};
   fields: FormlyFieldConfig[] = [];
@@ -323,35 +298,58 @@ export class RegFormComponent implements OnInit {
   submit() {
     if (this.form.valid) {
       // alert(JSON.stringify(this.model));
+      // Swal.fire('Registered',"Successfully Registered",'success');
+      var items = JSON.parse(localStorage.getItem('form_data')!);
+      console.log("items ; ",items);
+
+      if(items==null && items==undefined){
+        var data:any[] = [];
+        data.push(this.model);
+        localStorage.setItem('form_data',JSON.stringify(data));
+      }else{
+        var num = Math.random()*1000;
+        var isExist = false;
+        items.forEach((ele)=>{
+          if(ele.id== num){
+            isExist = true;
+          }
+        })
+        if(!isExist){
+          this.model.id = parseInt(num.toString());
+          console.log("model : ",this.model);
+
+          items.push(this.model);
+          localStorage.setItem('form_data',JSON.stringify(items));
+        }
+      }
       Swal.fire('Registered',"Successfully Registered",'success');
     }
   }
 
-  private buildGroups(response: any) {
-    return response.reduce(
-      (obj: any, value: any) => ({
-        ...obj,
-        [value.group]: [
-          ...(obj[value.group] || []),
-          { key: value.name, value: value.name },
-        ],
-      }),
-      {}
-    );
-  }
-
-  private buildFields(groups: any) {
-    return (<any>Object)
-      .entries(groups)
-      .map(([key, value]: [string, string]) => ({
-        type: 'multicheckbox',
-        key,
-        templateOptions: {
-          label: key,
-          options: value,
-        },
-      }));
-  }
+  // private buildGroups(response: any) {
+  //   return response.reduce(
+  //     (obj: any, value: any) => ({
+  //       ...obj,
+  //       [value.group]: [
+  //         ...(obj[value.group] || []),
+  //         { key: value.name, value: value.name },
+  //       ],
+  //     }),
+  //     {}
+  //   );
+  // }
+  // private buildFields(groups: any) {
+  //   return (<any>Object)
+  //     .entries(groups)
+  //     .map(([key, value]: [string, string]) => ({
+  //       type: 'multicheckbox',
+  //       key,
+  //       templateOptions: {
+  //         label: key,
+  //         options: value,
+  //       },
+  //     }));
+  // }
 
   public getCapitalizedTitle(type: string) {
     var charAt = type.charAt(0).toUpperCase();

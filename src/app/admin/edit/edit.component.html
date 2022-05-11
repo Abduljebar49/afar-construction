@@ -1,0 +1,36 @@
+<div class="default-height">
+    <div class="container mb-5">
+      <div class="">
+        <div class="">
+          <div class="row justify-content-center text-center">
+            <div class="header-text text-white sidebar-back">
+              Edit Licence Form
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="form-container">
+              <div class="">
+                <form [formGroup]="form" (ngSubmit)="submit()">
+                  <formly-form
+                    [form]="form"
+                    [fields]="fields"
+                    [model]="model"
+                  ></formly-form>
+                  <div class="justify-content-center text-end m-3">
+                    <button
+                      type="submit"
+                      class="btn btn-primary submit-button"
+                      [disabled]="!form.valid"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
